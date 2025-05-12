@@ -1,0 +1,156 @@
+// Импорт ZUI
+@import "../node_modules/zharikov-ui/source/scss/styles";
+
+$colors: (
+  primary: (background-color: $primary, color: $white),
+  success: (background-color: $success, color: $white),
+  waring: (background-color: $waring, color: $text),
+  danger: (background-color: $danger, color: $white),
+  tertiary: (background-color: $text, color: $white),
+);
+
+$sizes: (
+  large: (font: $large, padding: $zui-16 $zui-24),
+  middle: (font: $middle, padding: $zui-12 $zui-16),
+  small: (font: $small, padding: $zui-8 $zui-12)
+);
+
+$outline: (
+  primary: (background-color: $white, color: $primary, box-shadow: inset 0 0 0 2px $primary),
+  success: (background-color: $white, color: $text, box-shadow: inset 0 0 0 2px $success),
+  waring: (background-color: $white, color: $text, box-shadow: inset 0 0 0 2px $waring),
+  danger: (background-color: $white, color: $text, box-shadow: inset 0 0 0 2px $danger),
+  tertiary: (background-color: $white, color: $text, box-shadow: inset 0 0 0 2px $text)
+);
+
+$transparent: (
+  primary: $primary,
+  success: $success,
+  waring: $waring,
+  danger: $danger,
+  tertiary: $text
+);
+
+$hover: (
+  primary: (background-color: $primary-hover, color: $white),
+  success: (background-color: $success-hover, color: $white),
+  waring: (background-color: $waring-hover, color: $text),
+  danger: (background-color: $danger-hover, color: $white),
+  tertiary: (background-color: $tertiary, color: $white)
+);
+
+$pressed: (
+  primary: (background-color: $primary-pressed, color: $white),
+  waring: (background-color: $waring-pressed, color: $text),
+  tertiary: (background-color: $text, color: $white),
+  success: (background-color: $success-pressed, color: $white),
+  danger: (background-color: $danger-pressed, color: $white)
+);
+
+
+.button {
+  width: auto;
+  cursor: pointer;
+  box-sizing: border-box;
+  gap: $zui-8;
+  border-radius: .5em;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  flex: 0 0 auto;
+  border: 0;
+  z-index: 2;
+  @include flex($rw,$cr,$cr,$zui-8,$di);
+  @include transition(200);
+
+  // Размеры и основные стили
+  @each $size-name, $size-map in $sizes {
+    &.#{$size-name} {
+      font: map-get($size-map, font);
+      padding: map-get($size-map, padding);
+
+      // Цвета и состояния
+      @each $color-name, $color-map in $colors {
+        &.#{$color-name} {
+          background-color: map-get($color-map, background-color);
+          color: map-get($color-map, color);
+        }
+      }
+
+      // Ховер
+      @each $color-name, $color-map in $hover {
+        &.#{$color-name} {
+          &:hover {
+            color: map-get($color-map, color);
+            background-color: map-get($color-map, background-color);
+            box-shadow: inset 0 0 0 2px map-get($color-map, background-color);
+          }
+        }
+      }
+
+      // Нажатая или активная кнопка
+      @each $color-name, $color-map in $pressed {
+        &.#{$color-name} {
+          &:active {
+            color: map-get($color-map, color);
+            background-color: map-get($color-map, background-color);
+            box-shadow: inset 0 0 0 2px map-get($color-map, background-color);
+          }
+        }
+      }
+    }
+  }
+
+  // Модификаторы
+  // outline
+  @each $outline-name, $outline-map in $outline {
+    &.#{$outline-name} {
+      &.outline {
+        background-color: map-get($outline-map, background-color);
+        color: map-get($outline-map, color);
+        box-shadow: map-get($outline-map, box-shadow);
+      }
+    }
+  }
+  // transparent
+  @each $transparent-name, $transparent-value in $transparent {
+    &.#{$transparent-name} {
+      &.transparent {
+        background-color: $tr;
+        color: $transparent-value;
+        box-shadow: none;
+      }
+    }
+  }
+  // active
+  @each $color-name, $color-map in $pressed {
+    &.#{$color-name} {
+      &.pressed {
+        background-color: map-get($color-map, background-color);
+        color: map-get($color-map, color);
+        box-shadow: map-get($color-map, box-shadow);
+      }
+    }
+  }
+
+  &.loading {
+    flex-direction: row-reverse;
+    pointer-events: none;
+
+    &::before {
+      content: '♲';
+      width: 1em;
+      height: 1em;
+      display: block;
+      font-size: .8em;
+      margin-left: $zui-8;
+      animation: rotation 2s infinite linear;
+    }
+  }
+
+  &.disabled {
+    opacity: .5;
+    pointer-events: none;
+    filter: none;
+  }
+}

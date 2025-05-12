@@ -1,0 +1,13 @@
+{
+  "name": "ZUI Button",
+  "version": "1.0.0",
+  "description": "SCSS plugin for creating buttons",
+  "scripts": {},
+  "author": "",
+  "license": "UNLICENSED",
+  "repository": {},
+  "private": true,
+  "dependencies": {
+    "zharikov-ui": "^3.0.0"
+  }
+}

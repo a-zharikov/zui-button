@@ -1,0 +1,554 @@
+@charset "UTF-8";
+@-webkit-keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(720deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+* {
+  outline: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ERIC MEYER RESET
+================================================== */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, button, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 100%;
+  line-height: 1;
+  font-family: inherit;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+a:focus {
+  outline: 0;
+}
+
+a:hover,
+a:active {
+  outline: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+audio:not([controls]) {
+  display: none;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+
+button,
+input {
+  line-height: normal;
+  *overflow: visible;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+}
+html body {
+  background-color: #EAEAEA;
+  height: 100%;
+  overflow-x: hidden;
+  font: 400 20px/28px "Helvetica";
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 12px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.button {
+  width: auto;
+  cursor: pointer;
+  box-sizing: border-box;
+  gap: 8px;
+  border-radius: 0.5em;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  flex: 0 0 auto;
+  border: 0;
+  z-index: 2;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  -ms-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+.button.large {
+  font: 600 24px/24px "Helvetica";
+  padding: 16px 24px;
+}
+.button.large.primary {
+  background-color: #325FEB;
+  color: #ffffff;
+}
+.button.large.success {
+  background-color: #52B530;
+  color: #ffffff;
+}
+.button.large.waring {
+  background-color: #F9AA34;
+  color: #202327;
+}
+.button.large.danger {
+  background-color: #E85656;
+  color: #ffffff;
+}
+.button.large.tertiary {
+  background-color: #202327;
+  color: #ffffff;
+}
+.button.large.primary:hover {
+  color: #ffffff;
+  background-color: #6185F0;
+  box-shadow: inset 0 0 0 2px #6185F0;
+}
+.button.large.success:hover {
+  color: #ffffff;
+  background-color: #8DDA72;
+  box-shadow: inset 0 0 0 2px #8DDA72;
+}
+.button.large.waring:hover {
+  color: #202327;
+  background-color: #FABF66;
+  box-shadow: inset 0 0 0 2px #FABF66;
+}
+.button.large.danger:hover {
+  color: #ffffff;
+  background-color: #EE8181;
+  box-shadow: inset 0 0 0 2px #EE8181;
+}
+.button.large.tertiary:hover {
+  color: #ffffff;
+  background-color: #4E555F;
+  box-shadow: inset 0 0 0 2px #4E555F;
+}
+.button.large.primary:active {
+  color: #ffffff;
+  background-color: #2635CD;
+  box-shadow: inset 0 0 0 2px #2635CD;
+}
+.button.large.waring:active {
+  color: #202327;
+  background-color: #F29408;
+  box-shadow: inset 0 0 0 2px #F29408;
+}
+.button.large.tertiary:active {
+  color: #ffffff;
+  background-color: #202327;
+  box-shadow: inset 0 0 0 2px #202327;
+}
+.button.large.success:active {
+  color: #ffffff;
+  background-color: #408D25;
+  box-shadow: inset 0 0 0 2px #408D25;
+}
+.button.large.danger:active {
+  color: #ffffff;
+  background-color: #E12828;
+  box-shadow: inset 0 0 0 2px #E12828;
+}
+.button.middle {
+  font: 600 20px/20px "Helvetica";
+  padding: 12px 16px;
+}
+.button.middle.primary {
+  background-color: #325FEB;
+  color: #ffffff;
+}
+.button.middle.success {
+  background-color: #52B530;
+  color: #ffffff;
+}
+.button.middle.waring {
+  background-color: #F9AA34;
+  color: #202327;
+}
+.button.middle.danger {
+  background-color: #E85656;
+  color: #ffffff;
+}
+.button.middle.tertiary {
+  background-color: #202327;
+  color: #ffffff;
+}
+.button.middle.primary:hover {
+  color: #ffffff;
+  background-color: #6185F0;
+  box-shadow: inset 0 0 0 2px #6185F0;
+}
+.button.middle.success:hover {
+  color: #ffffff;
+  background-color: #8DDA72;
+  box-shadow: inset 0 0 0 2px #8DDA72;
+}
+.button.middle.waring:hover {
+  color: #202327;
+  background-color: #FABF66;
+  box-shadow: inset 0 0 0 2px #FABF66;
+}
+.button.middle.danger:hover {
+  color: #ffffff;
+  background-color: #EE8181;
+  box-shadow: inset 0 0 0 2px #EE8181;
+}
+.button.middle.tertiary:hover {
+  color: #ffffff;
+  background-color: #4E555F;
+  box-shadow: inset 0 0 0 2px #4E555F;
+}
+.button.middle.primary:active {
+  color: #ffffff;
+  background-color: #2635CD;
+  box-shadow: inset 0 0 0 2px #2635CD;
+}
+.button.middle.waring:active {
+  color: #202327;
+  background-color: #F29408;
+  box-shadow: inset 0 0 0 2px #F29408;
+}
+.button.middle.tertiary:active {
+  color: #ffffff;
+  background-color: #202327;
+  box-shadow: inset 0 0 0 2px #202327;
+}
+.button.middle.success:active {
+  color: #ffffff;
+  background-color: #408D25;
+  box-shadow: inset 0 0 0 2px #408D25;
+}
+.button.middle.danger:active {
+  color: #ffffff;
+  background-color: #E12828;
+  box-shadow: inset 0 0 0 2px #E12828;
+}
+.button.small {
+  font: 600 16px/16px "Helvetica";
+  padding: 8px 12px;
+}
+.button.small.primary {
+  background-color: #325FEB;
+  color: #ffffff;
+}
+.button.small.success {
+  background-color: #52B530;
+  color: #ffffff;
+}
+.button.small.waring {
+  background-color: #F9AA34;
+  color: #202327;
+}
+.button.small.danger {
+  background-color: #E85656;
+  color: #ffffff;
+}
+.button.small.tertiary {
+  background-color: #202327;
+  color: #ffffff;
+}
+.button.small.primary:hover {
+  color: #ffffff;
+  background-color: #6185F0;
+  box-shadow: inset 0 0 0 2px #6185F0;
+}
+.button.small.success:hover {
+  color: #ffffff;
+  background-color: #8DDA72;
+  box-shadow: inset 0 0 0 2px #8DDA72;
+}
+.button.small.waring:hover {
+  color: #202327;
+  background-color: #FABF66;
+  box-shadow: inset 0 0 0 2px #FABF66;
+}
+.button.small.danger:hover {
+  color: #ffffff;
+  background-color: #EE8181;
+  box-shadow: inset 0 0 0 2px #EE8181;
+}
+.button.small.tertiary:hover {
+  color: #ffffff;
+  background-color: #4E555F;
+  box-shadow: inset 0 0 0 2px #4E555F;
+}
+.button.small.primary:active {
+  color: #ffffff;
+  background-color: #2635CD;
+  box-shadow: inset 0 0 0 2px #2635CD;
+}
+.button.small.waring:active {
+  color: #202327;
+  background-color: #F29408;
+  box-shadow: inset 0 0 0 2px #F29408;
+}
+.button.small.tertiary:active {
+  color: #ffffff;
+  background-color: #202327;
+  box-shadow: inset 0 0 0 2px #202327;
+}
+.button.small.success:active {
+  color: #ffffff;
+  background-color: #408D25;
+  box-shadow: inset 0 0 0 2px #408D25;
+}
+.button.small.danger:active {
+  color: #ffffff;
+  background-color: #E12828;
+  box-shadow: inset 0 0 0 2px #E12828;
+}
+.button.primary.outline {
+  background-color: #ffffff;
+  color: #325FEB;
+  box-shadow: inset 0 0 0 2px #325FEB;
+}
+.button.success.outline {
+  background-color: #ffffff;
+  color: #202327;
+  box-shadow: inset 0 0 0 2px #52B530;
+}
+.button.waring.outline {
+  background-color: #ffffff;
+  color: #202327;
+  box-shadow: inset 0 0 0 2px #F9AA34;
+}
+.button.danger.outline {
+  background-color: #ffffff;
+  color: #202327;
+  box-shadow: inset 0 0 0 2px #E85656;
+}
+.button.tertiary.outline {
+  background-color: #ffffff;
+  color: #202327;
+  box-shadow: inset 0 0 0 2px #202327;
+}
+.button.primary.transparent {
+  background-color: transparent;
+  color: #325FEB;
+  box-shadow: none;
+}
+.button.success.transparent {
+  background-color: transparent;
+  color: #52B530;
+  box-shadow: none;
+}
+.button.waring.transparent {
+  background-color: transparent;
+  color: #F9AA34;
+  box-shadow: none;
+}
+.button.danger.transparent {
+  background-color: transparent;
+  color: #E85656;
+  box-shadow: none;
+}
+.button.tertiary.transparent {
+  background-color: transparent;
+  color: #202327;
+  box-shadow: none;
+}
+.button.primary.pressed {
+  background-color: #2635CD;
+  color: #ffffff;
+}
+.button.waring.pressed {
+  background-color: #F29408;
+  color: #202327;
+}
+.button.tertiary.pressed {
+  background-color: #202327;
+  color: #ffffff;
+}
+.button.success.pressed {
+  background-color: #408D25;
+  color: #ffffff;
+}
+.button.danger.pressed {
+  background-color: #E12828;
+  color: #ffffff;
+}
+.button.loading {
+  flex-direction: row-reverse;
+  pointer-events: none;
+}
+.button.loading::before {
+  content: "♲";
+  width: 1em;
+  height: 1em;
+  display: block;
+  font-size: 0.8em;
+  margin-left: 8px;
+  animation: rotation 2s infinite linear;
+}
+.button.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  filter: none;
+}
