@@ -1,16 +1,24 @@
 {
   "name": "zui-button",
-  "version": "1.0.0",
+  "version": "4.0.0",
   "description": "SCSS plugin for creating buttons",
   "scripts": {},
-  "author": "",
-  "license": "UNLICENSED",
+  "author": "Alexander Zharikov <mail@zharikov.design>",
+  "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/a-zharikov/ui"
+    "url": "git+https://github.com/a-zharikov/zui-button"
   },
+  "keywords": [
+    "scss",
+    "button",
+    "large",
+    "middle",
+    "small"
+  ],
   "private": true,
   "dependencies": {
     "zharikov-ui": "^3.0.0"
-  }
+  },
+  "homepage": "https://zharikov.design/plugins/#button"
 }
