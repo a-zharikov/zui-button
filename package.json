@@ -16,7 +16,6 @@
     "middle",
     "small"
   ],
-  "private": true,
   "dependencies": {
     "zharikov-ui": "^3.0.0"
   },
